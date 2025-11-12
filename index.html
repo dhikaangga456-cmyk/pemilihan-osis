@@ -1,0 +1,827 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Dhika angga syahputra— Portofolio</title>
+  <meta name="description" content="Portofolio Muhammad Mahofi Marchel — Siswa SMK. Web developer pemula, proyek, keterampilan, pengalaman, dan kontak." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%232a9d8f'/%3E%3Ctext x='50' y='57' font-size='46' font-family='sans-serif' fill='white' text-anchor='middle'%3EMM%3C/text%3E%3C/svg%3E" />
+  <style>
+    /* Google Font fallback: system font stack used for full offline safety */
+    :root{
+      --bg:#0f1724;
+      --card:#0b1220;
+      --muted:#9aa4b2;
+      --accent:#2a9d8f;
+      --accent-2:#7bd389;
+      --glass: rgba(255,255,255,0.04);
+      --glass-2: rgba(255,255,255,0.02);
+      --text:#e6eef6;
+      --radius:14px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: linear-gradient(180deg,#071025 0%,#08121a 40%, rgba(11,18,32,1) 100%);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      padding:40px;
+      display:flex;
+      justify-content:center;
+      align-items:flex-start;
+    }
+
+    .container{
+      width:100%;
+      max-width:1100px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:20px;
+      padding:28px;
+      box-shadow: 0 10px 30px rgba(2,6,23,0.7), inset 0 1px 0 rgba(255,255,255,0.02);
+      backdrop-filter: blur(6px);
+    }
+
+    header{
+      display:flex;
+      gap:20px;
+      align-items:center;
+      justify-content:space-between;
+      margin-bottom:18px;
+    }
+    .brand{
+      display:flex;
+      gap:14px;
+      align-items:center;
+    }
+    .avatar{
+      width:72px;
+      height:72px;
+      border-radius:14px;
+      background:linear-gradient(135deg,var(--accent),var(--accent-2));
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:700;
+      color:white;
+      font-size:26px;
+      box-shadow: 0 6px 18px rgba(42,157,143,0.18);
+      flex-shrink:0;
+    }
+    .brand h1{
+      margin:0;
+      font-size:18px;
+      letter-spacing:0.2px;
+    }
+    .brand p{margin:0;font-size:13px;color:var(--muted)}
+
+    nav{
+      display:flex;
+      gap:10px;
+      align-items:center;
+    }
+    .btn{
+      background:transparent;
+      color:var(--text);
+      border:1px solid rgba(255,255,255,0.06);
+      padding:9px 14px;
+      border-radius:10px;
+      font-size:13px;
+      cursor:pointer;
+      transition:all .18s ease;
+      text-decoration:none;
+    }
+    .btn:hover{transform:translateY(-3px); box-shadow:0 8px 20px rgba(2,6,23,0.5)}
+    .btn-primary{
+      background:linear-gradient(90deg,var(--accent),var(--accent-2));
+      border:0;
+      color:#04221a;
+      font-weight:600;
+    }
+
+    /* Layout grid */
+    .grid{
+      display:grid;
+      grid-template-columns: 360px 1fr;
+      gap:22px;
+    }
+
+    /* Left column */
+    .card{
+      background:linear-gradient(180deg,var(--glass),var(--glass-2));
+      border-radius:var(--radius);
+      padding:18px;
+      border:1px solid rgba(255,255,255,0.03);
+    }
+    .profile-photo{
+      width:100%;
+      border-radius:12px;
+      overflow:hidden;
+      margin-bottom:12px;
+      position:relative;
+      background:linear-gradient(135deg,var(--accent),#1fbf9b);
+      aspect-ratio:1/1;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:white;
+      font-weight:700;
+      font-size:48px;
+    }
+    .profile-info h2{margin:6px 0 0 0;font-size:20px}
+    .profile-info p{margin:6px 0 0 0;color:var(--muted);font-size:13px}
+
+    .contact-list{margin-top:14px;display:flex;flex-direction:column;gap:8px}
+    .contact-item{
+      display:flex;
+      gap:12px;
+      align-items:center;
+      padding:8px;
+      border-radius:10px;
+      background:rgba(255,255,255,0.02);
+      font-size:13px;
+      color:var(--muted);
+    }
+
+    .skills{margin-top:14px}
+    .skill{
+      margin-bottom:10px;
+    }
+    .skill b{display:block;font-size:13px;margin-bottom:6px}
+    .progress{
+      height:10px;background:rgba(255,255,255,0.03);border-radius:8px;overflow:hidden;
+    }
+    .progress > i{
+      display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--accent-2));
+      border-radius:8px;
+    }
+
+    /* Right column */
+    .hero{
+      padding:20px;
+      border-radius:12px;
+      background: linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      margin-bottom:16px;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+    .hero h3{margin:0;font-size:22px}
+    .hero p{margin:0;color:var(--muted);font-size:15px}
+    .hero-actions{display:flex;gap:10px;margin-top:6px}
+
+    .section{
+      margin-bottom:18px;
+    }
+    .section h4{
+      margin:0 0 12px 0;
+      font-size:16px;
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+
+    .projects{
+      display:grid;
+      grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+      gap:12px;
+    }
+    .project{
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      padding:12px;
+      border-radius:10px;
+      border:1px solid rgba(255,255,255,0.03);
+    }
+    .project h5{margin:0 0 6px 0;font-size:14px}
+    .project p{margin:0;color:var(--muted);font-size:13px}
+
+    .timeline{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+    .timeline-item{
+      padding:10px;border-radius:10px;background:rgba(255,255,255,0.02);
+      border:1px solid rgba(255,255,255,0.02);
+    }
+    .timeline-item small{color:var(--muted)}
+
+    footer{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:10px;
+      margin-top:6px;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    /* Responsive */
+    @media (max-width:880px){
+      .grid{grid-template-columns:1fr; padding-bottom:8px}
+      header{flex-direction:column;align-items:flex-start;gap:12px}
+      .brand h1{font-size:16px}
+      body{padding:20px}
+    }
+
+    /* Print */
+    @media print{
+      body{background:white;color:black}
+      .container{box-shadow:none;border-radius:0;padding:10px}
+      header nav, .hero-actions{display:none}
+    }
+  </style>
+</head>
+<body>
+  <div class="container" role="main">
+    <header>
+      <div class="brand" aria-label="Identitas">
+        <div class="avatar" aria-hidden="true">MM</div>
+        <div>
+          <h1>Muhammad Mahofi Marchel</h1>
+          <p>Siswa SMK — Calon Pelamar Kerja (Web / IT)</p>
+        </div>
+      </div>
+
+      <nav aria-label="Navigasi utama">
+        <a class="btn" href="#about">Tentang</a>
+        <a class="btn" href="#projects">Proyek</a>
+        <a class="btn" href="#contact">Kontak</a>
+        <a class="btn btn-primary" href="mailto:your.email@example.com?subject=Lamaran%20Kerja%20dari%20Mahofi">Hubungi / Kirim CV</a>
+      </nav>
+    </header>
+
+    <main class="grid">
+      <!-- left column -->
+      <aside>
+        <div class="card">
+          <div class="profile-photo" role="img" aria-label="Foto profil Muhammad Mahofi Marchel">
+            <!-- SVG avatar with initials, mudah diganti dengan <img src="foto.jpg"> -->
+            <svg width="100%" height="100%" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+              <defs>
+                <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+                  <stop offset="0" stop-color="#2a9d8f"/>
+                  <stop offset="1" stop-color="#7bd389"/>
+                </linearGradient>
+              </defs>
+              <rect width="100%" height="100%" fill="url(#g)"/>
+              <text x="50%" y="58%" text-anchor="middle" font-family="sans-serif" font-size="76" fill="#04221a" font-weight="700">MM</text>
+            </svg>
+          </div>
+
+          <div class="profile-info">
+            <h2>Muhammad Mahofi Marchel</h2>
+            <p>Siswa SMK • Jurusan: (Ganti dengan jurusan Anda) • Lokasi: (Ganti kota)</p>
+          </div>
+
+          <div class="contact-list" style="margin-top:12px">
+            <div class="contact-item"><strong>Email:</strong>&nbsp;&nbsp;<span style="margin-left:auto;color:var(--muted)">your.email@example.com</span></div>
+            <div class="contact-item"><strong>Telepon:</strong>&nbsp;&nbsp;<span style="margin-left:auto;color:var(--muted)">+62 8xx-xxxx-xxxx</span></div>
+            <div class="contact-item"><strong>LinkedIn:</strong>&nbsp;&nbsp;<span style="margin-left:auto;color:var(--muted)">linkedin.com/in/username</span></div>
+            <div class="contact-item"><strong>GitHub:</strong>&nbsp;&nbsp;<span style="margin-left:auto;color:var(--muted)">github.com/username</span></div>
+          </div>
+
+          <div class="skills" aria-label="Keterampilan">
+            <h4 style="margin-top:12px">Keterampilan</h4>
+            <div class="skill">
+              <b>HTML & CSS</b>
+              <div class="progress"><i style="width:90%"></i></div>
+            </div>
+            <div class="skill">
+              <b>JavaScript (dasar)</b>
+              <div class="progress"><i style="width:70%"></i></div>
+            </div>
+            <div class="skill">
+              <b>Desain UI / Figma</b>
+              <div class="progress"><i style="width:65%"></i></div>
+            </div>
+            <div class="skill">
+              <b>Git & GitHub</b>
+              <div class="progress"><i style="width:60%"></i></div>
+            </div>
+          </div>
+        </div>
+
+        <div style="height:12px"></div>
+
+        <div class="card">
+          <h4>Ringkasan</h4>
+          <p style="color:var(--muted);margin:0;font-size:14px">
+            Saya siswa SMK yang antusias dalam bidang teknologi dan pengembangan web. Berpengalaman membuat proyek kecil (website profil, portofolio, landing page) dan siap belajar cepat di lingkungan kerja profesional.
+          </p>
+        </div>
+
+      </aside>
+
+      <!-- right column -->
+      <section>
+        <div class="hero">
+          <div>
+            <h3>Halo, saya Muhammad Mahofi Marchel</h3>
+            <p>Calon lulusan SMK yang fokus pada pengembangan web dan solusi IT. Saya suka belajar teknologi baru, membangun proyek nyata, dan bekerja dalam tim.</p>
+          </div>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="mailto:your.email@example.com?subject=Lamaran%20Kerja%20dari%20Mahofi">Kirim Email</a>
+            <a class="btn" href="#contact">Detail Kontak</a>
+            <a class="btn" href="#" onclick="alert('Ganti link ini dengan file CV/Resume Anda (contoh: /files/CV_Mahofi.pdf)')">Download CV</a>
+          </div>
+        </div>
+
+        <div id="about" class="section card" style="padding:18px">
+          <h4>Tentang Saya</h4>
+          <p style="color:var(--muted);margin:0 0 8px 0">Sebagai siswa SMK, saya telah menyelesaikan beberapa proyek sekolah dan mandiri. Saya tertarik di bidang front-end development, optimasi performa, dan UI/UX. Saya mencari kesempatan magang atau kerja awal setelah lulus untuk mengaplikasikan keterampilan yang sudah saya pelajari.</p>
+
+          <h4 style="margin-top:12px">Pendidikan</h4>
+          <div class="timeline">
+            <div class="timeline-item">
+              <strong>SMK — Nama Sekolah Anda</strong>
+              <div><small>2022 — 2025 (perkiraan)</small></div>
+              <div style="color:var(--muted);margin-top:6px;font-size:13px">Jurusan: (Tuliskan jurusan Anda, mis. TKJ, RPL, Multimedia)</div>
+            </div>
+          </div>
+        </div>
+
+        <div id="projects" class="section">
+          <h4>Proyek Pilihan</h4>
+          <div class="projects">
+            <div class="project">
+              <h5>Website Profil Sekolah</h5>
+              <p>Mendesain dan membangun halaman profil sekolah menggunakan HTML/CSS responsif. Menyertakan galeri dan informasi kontak.</p>
+              <div style="margin-top:8px">
+                <a class="btn" href="#" onclick="alert('Ganti dengan link proyek atau repo GitHub Anda')">Lihat</a>
+              </div>
+            </div>
+
+            <div class="project">
+              <h5>Landing Page Produk</h5>
+              <p>Membuat landing page sederhana untuk produk fiktif dengan layout responsif dan CTA.</p>
+              <div style="margin-top:8px"><a class="btn" href="#" onclick="alert('Ganti dengan link proyek atau repo GitHub Anda')">Lihat</a></div>
+            </div>
+
+            <div class="project">
+              <h5>Sistem Informasi Sederhana</h5>
+              <p>Proyek tugas kelompok: dokumentasi dan desain UI; kontribusi front-end.</p>
+              <div style="margin-top:8px"><a class="btn" href="#" onclick="alert('Ganti dengan link proyek atau repo GitHub Anda')">Lihat</a></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section card">
+          <h4>Pengalaman & Kegiatan</h4>
+          <div class="timeline">
+            <div class="timeline-item">
+              <strong>Magang / Praktek Kerja Industri</strong>
+              <div><small>(Kosong atau tulis pengalaman jika ada)</small></div>
+              <div style="color:var(--muted);margin-top:6px">Jika Anda pernah magang, tulis nama perusahaan, durasi, dan tugas utama.</div>
+            </div>
+
+            <div class="timeline-item">
+              <strong>Kegiatan Ekstrakurikuler / Organisasi</strong>
+              <div><small>Anggota Klub IT / Tim OSIS / Lainnya</small></div>
+              <div style="color:var(--muted);margin-top:6px">Sertakan peran yang menunjukkan kepemimpinan atau kerja tim.</div>
+            </div>
+          </div>
+        </div>
+
+        <div id="contact" class="section card">
+          <h4>Kontak</h4>
+          <p style="color:var(--muted);margin:0 0 8px 0">Saya terbuka untuk kesempatan magang dan kerja. Silakan hubungi melalui email atau telepon.</p>
+          <div style="display:flex;gap:10px;margin-top:10px">
+            <a class="btn btn-primary" href="mailto:your.email@example.com?subject=Hello%20Mahofi">Email</a>
+            <a class="btn" href="tel:+628xxxxxxxxxx">Telepon</a>
+            <a class="btn" href="https://github.com/username" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </div>
+
+        <footer>
+          <div>© <strong>Muhammad Mahofi Marchel</strong> — Portofolio</div>
+          <div style="color:var(--muted)">Diperbarui: 2025</div>
+        </footer>
+
+      </section>
+    </main>
+  </div>
+
+  <script>
+    // Tip kecil: ganti alamat email, telepon, linkedin/github, dan isi proyek.
+    // Fungsionalitas kecil untuk tombol "lihat" dan download CV bisa diganti dengan link nyata.
+    // Contoh: ubah href "Download CV" ke "/files/CV_MuhammadMahofi.pdf"
+  </script>
+</body>
+</html><!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Muhammad Mahofi Marchel — Portofolio</title>
+  <meta name="description" content="Portofolio Muhammad Mahofi Marchel — Siswa SMK. Web developer pemula, proyek, keterampilan, pengalaman, dan kontak." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%232a9d8f'/%3E%3Ctext x='50' y='57' font-size='46' font-family='sans-serif' fill='white' text-anchor='middle'%3EMM%3C/text%3E%3C/svg%3E" />
+  <style>
+    /* Google Font fallback: system font stack used for full offline safety */
+    :root{
+      --bg:#0f1724;
+      --card:#0b1220;
+      --muted:#9aa4b2;
+      --accent:#2a9d8f;
+      --accent-2:#7bd389;
+      --glass: rgba(255,255,255,0.04);
+      --glass-2: rgba(255,255,255,0.02);
+      --text:#e6eef6;
+      --radius:14px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: linear-gradient(180deg,#071025 0%,#08121a 40%, rgba(11,18,32,1) 100%);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      padding:40px;
+      display:flex;
+      justify-content:center;
+      align-items:flex-start;
+    }
+
+    .container{
+      width:100%;
+      max-width:1100px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:20px;
+      padding:28px;
+      box-shadow: 0 10px 30px rgba(2,6,23,0.7), inset 0 1px 0 rgba(255,255,255,0.02);
+      backdrop-filter: blur(6px);
+    }
+
+    header{
+      display:flex;
+      gap:20px;
+      align-items:center;
+      justify-content:space-between;
+      margin-bottom:18px;
+    }
+    .brand{
+      display:flex;
+      gap:14px;
+      align-items:center;
+    }
+    .avatar{
+      width:72px;
+      height:72px;
+      border-radius:14px;
+      background:linear-gradient(135deg,var(--accent),var(--accent-2));
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:700;
+      color:white;
+      font-size:26px;
+      box-shadow: 0 6px 18px rgba(42,157,143,0.18);
+      flex-shrink:0;
+    }
+    .brand h1{
+      margin:0;
+      font-size:18px;
+      letter-spacing:0.2px;
+    }
+    .brand p{margin:0;font-size:13px;color:var(--muted)}
+
+    nav{
+      display:flex;
+      gap:10px;
+      align-items:center;
+    }
+    .btn{
+      background:transparent;
+      color:var(--text);
+      border:1px solid rgba(255,255,255,0.06);
+      padding:9px 14px;
+      border-radius:10px;
+      font-size:13px;
+      cursor:pointer;
+      transition:all .18s ease;
+      text-decoration:none;
+    }
+    .btn:hover{transform:translateY(-3px); box-shadow:0 8px 20px rgba(2,6,23,0.5)}
+    .btn-primary{
+      background:linear-gradient(90deg,var(--accent),var(--accent-2));
+      border:0;
+      color:#04221a;
+      font-weight:600;
+    }
+
+    /* Layout grid */
+    .grid{
+      display:grid;
+      grid-template-columns: 360px 1fr;
+      gap:22px;
+    }
+
+    /* Left column */
+    .card{
+      background:linear-gradient(180deg,var(--glass),var(--glass-2));
+      border-radius:var(--radius);
+      padding:18px;
+      border:1px solid rgba(255,255,255,0.03);
+    }
+    .profile-photo{
+      width:100%;
+      border-radius:12px;
+      overflow:hidden;
+      margin-bottom:12px;
+      position:relative;
+      background:linear-gradient(135deg,var(--accent),#1fbf9b);
+      aspect-ratio:1/1;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:white;
+      font-weight:700;
+      font-size:48px;
+    }
+    .profile-info h2{margin:6px 0 0 0;font-size:20px}
+    .profile-info p{margin:6px 0 0 0;color:var(--muted);font-size:13px}
+
+    .contact-list{margin-top:14px;display:flex;flex-direction:column;gap:8px}
+    .contact-item{
+      display:flex;
+      gap:12px;
+      align-items:center;
+      padding:8px;
+      border-radius:10px;
+      background:rgba(255,255,255,0.02);
+      font-size:13px;
+      color:var(--muted);
+    }
+
+    .skills{margin-top:14px}
+    .skill{
+      margin-bottom:10px;
+    }
+    .skill b{display:block;font-size:13px;margin-bottom:6px}
+    .progress{
+      height:10px;background:rgba(255,255,255,0.03);border-radius:8px;overflow:hidden;
+    }
+    .progress > i{
+      display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--accent-2));
+      border-radius:8px;
+    }
+
+    /* Right column */
+    .hero{
+      padding:20px;
+      border-radius:12px;
+      background: linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      margin-bottom:16px;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+    .hero h3{margin:0;font-size:22px}
+    .hero p{margin:0;color:var(--muted);font-size:15px}
+    .hero-actions{display:flex;gap:10px;margin-top:6px}
+
+    .section{
+      margin-bottom:18px;
+    }
+    .section h4{
+      margin:0 0 12px 0;
+      font-size:16px;
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+
+    .projects{
+      display:grid;
+      grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+      gap:12px;
+    }
+    .project{
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      padding:12px;
+      border-radius:10px;
+      border:1px solid rgba(255,255,255,0.03);
+    }
+    .project h5{margin:0 0 6px 0;font-size:14px}
+    .project p{margin:0;color:var(--muted);font-size:13px}
+
+    .timeline{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+    .timeline-item{
+      padding:10px;border-radius:10px;background:rgba(255,255,255,0.02);
+      border:1px solid rgba(255,255,255,0.02);
+    }
+    .timeline-item small{color:var(--muted)}
+
+    footer{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:10px;
+      margin-top:6px;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    /* Responsive */
+    @media (max-width:880px){
+      .grid{grid-template-columns:1fr; padding-bottom:8px}
+      header{flex-direction:column;align-items:flex-start;gap:12px}
+      .brand h1{font-size:16px}
+      body{padding:20px}
+    }
+
+    /* Print */
+    @media print{
+      body{background:white;color:black}
+      .container{box-shadow:none;border-radius:0;padding:10px}
+      header nav, .hero-actions{display:none}
+    }
+  </style>
+</head>
+<body>
+  <div class="container" role="main">
+    <header>
+      <div class="brand" aria-label="Identitas">
+        <div class="avatar" aria-hidden="true">MM</div>
+        <div>
+          <h1>Muhammad Mahofi Marchel</h1>
+          <p>Siswa SMK — Calon Pelamar Kerja (Web / IT)</p>
+        </div>
+      </div>
+
+      <nav aria-label="Navigasi utama">
+        <a class="btn" href="#about">Tentang</a>
+        <a class="btn" href="#projects">Proyek</a>
+        <a class="btn" href="#contact">Kontak</a>
+        <a class="btn btn-primary" href="mailto:your.email@example.com?subject=Lamaran%20Kerja%20dari%20Mahofi">Hubungi / Kirim CV</a>
+      </nav>
+    </header>
+
+    <main class="grid">
+      <!-- left column -->
+      <aside>
+        <div class="card">
+          <div class="profile-photo" role="img" aria-label="Foto profil Muhammad Mahofi Marchel">
+            <!-- SVG avatar with initials, mudah diganti dengan <img src="foto.jpg"> -->
+            <svg width="100%" height="100%" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+              <defs>
+                <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+                  <stop offset="0" stop-color="#2a9d8f"/>
+                  <stop offset="1" stop-color="#7bd389"/>
+                </linearGradient>
+              </defs>
+              <rect width="100%" height="100%" fill="url(#g)"/>
+              <text x="50%" y="58%" text-anchor="middle" font-family="sans-serif" font-size="76" fill="#04221a" font-weight="700">MM</text>
+            </svg>
+          </div>
+
+          <div class="profile-info">
+            <h2>Muhammad Mahofi Marchel</h2>
+            <p>Siswa SMK • Jurusan: (Ganti dengan jurusan Anda) • Lokasi: (Ganti kota)</p>
+          </div>
+
+          <div class="contact-list" style="margin-top:12px">
+            <div class="contact-item"><strong>Email:</strong>&nbsp;&nbsp;<span style="margin-left:auto;color:var(--muted)">your.email@example.com</span></div>
+            <div class="contact-item"><strong>Telepon:</strong>&nbsp;&nbsp;<span style="margin-left:auto;color:var(--muted)">+62 8xx-xxxx-xxxx</span></div>
+            <div class="contact-item"><strong>LinkedIn:</strong>&nbsp;&nbsp;<span style="margin-left:auto;color:var(--muted)">linkedin.com/in/username</span></div>
+            <div class="contact-item"><strong>GitHub:</strong>&nbsp;&nbsp;<span style="margin-left:auto;color:var(--muted)">github.com/username</span></div>
+          </div>
+
+          <div class="skills" aria-label="Keterampilan">
+            <h4 style="margin-top:12px">Keterampilan</h4>
+            <div class="skill">
+              <b>HTML & CSS</b>
+              <div class="progress"><i style="width:90%"></i></div>
+            </div>
+            <div class="skill">
+              <b>JavaScript (dasar)</b>
+              <div class="progress"><i style="width:70%"></i></div>
+            </div>
+            <div class="skill">
+              <b>Desain UI / Figma</b>
+              <div class="progress"><i style="width:65%"></i></div>
+            </div>
+            <div class="skill">
+              <b>Git & GitHub</b>
+              <div class="progress"><i style="width:60%"></i></div>
+            </div>
+          </div>
+        </div>
+
+        <div style="height:12px"></div>
+
+        <div class="card">
+          <h4>Ringkasan</h4>
+          <p style="color:var(--muted);margin:0;font-size:14px">
+            Saya siswa SMK yang antusias dalam bidang teknologi dan pengembangan web. Berpengalaman membuat proyek kecil (website profil, portofolio, landing page) dan siap belajar cepat di lingkungan kerja profesional.
+          </p>
+        </div>
+
+      </aside>
+
+      <!-- right column -->
+      <section>
+        <div class="hero">
+          <div>
+            <h3>Halo, saya Muhammad Mahofi Marchel</h3>
+            <p>Calon lulusan SMK yang fokus pada pengembangan web dan solusi IT. Saya suka belajar teknologi baru, membangun proyek nyata, dan bekerja dalam tim.</p>
+          </div>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="mailto:your.email@example.com?subject=Lamaran%20Kerja%20dari%20Mahofi">Kirim Email</a>
+            <a class="btn" href="#contact">Detail Kontak</a>
+            <a class="btn" href="#" onclick="alert('Ganti link ini dengan file CV/Resume Anda (contoh: /files/CV_Mahofi.pdf)')">Download CV</a>
+          </div>
+        </div>
+
+        <div id="about" class="section card" style="padding:18px">
+          <h4>Tentang Saya</h4>
+          <p style="color:var(--muted);margin:0 0 8px 0">Sebagai siswa SMK, saya telah menyelesaikan beberapa proyek sekolah dan mandiri. Saya tertarik di bidang front-end development, optimasi performa, dan UI/UX. Saya mencari kesempatan magang atau kerja awal setelah lulus untuk mengaplikasikan keterampilan yang sudah saya pelajari.</p>
+
+          <h4 style="margin-top:12px">Pendidikan</h4>
+          <div class="timeline">
+            <div class="timeline-item">
+              <strong>SMK — Nama Sekolah Anda</strong>
+              <div><small>2022 — 2025 (perkiraan)</small></div>
+              <div style="color:var(--muted);margin-top:6px;font-size:13px">Jurusan: (Tuliskan jurusan Anda, mis. TKJ, RPL, Multimedia)</div>
+            </div>
+          </div>
+        </div>
+
+        <div id="projects" class="section">
+          <h4>Proyek Pilihan</h4>
+          <div class="projects">
+            <div class="project">
+              <h5>Website Profil Sekolah</h5>
+              <p>Mendesain dan membangun halaman profil sekolah menggunakan HTML/CSS responsif. Menyertakan galeri dan informasi kontak.</p>
+              <div style="margin-top:8px">
+                <a class="btn" href="#" onclick="alert('Ganti dengan link proyek atau repo GitHub Anda')">Lihat</a>
+              </div>
+            </div>
+
+            <div class="project">
+              <h5>Landing Page Produk</h5>
+              <p>Membuat landing page sederhana untuk produk fiktif dengan layout responsif dan CTA.</p>
+              <div style="margin-top:8px"><a class="btn" href="#" onclick="alert('Ganti dengan link proyek atau repo GitHub Anda')">Lihat</a></div>
+            </div>
+
+            <div class="project">
+              <h5>Sistem Informasi Sederhana</h5>
+              <p>Proyek tugas kelompok: dokumentasi dan desain UI; kontribusi front-end.</p>
+              <div style="margin-top:8px"><a class="btn" href="#" onclick="alert('Ganti dengan link proyek atau repo GitHub Anda')">Lihat</a></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section card">
+          <h4>Pengalaman & Kegiatan</h4>
+          <div class="timeline">
+            <div class="timeline-item">
+              <strong>Magang / Praktek Kerja Industri</strong>
+              <div><small>(Kosong atau tulis pengalaman jika ada)</small></div>
+              <div style="color:var(--muted);margin-top:6px">Jika Anda pernah magang, tulis nama perusahaan, durasi, dan tugas utama.</div>
+            </div>
+
+            <div class="timeline-item">
+              <strong>Kegiatan Ekstrakurikuler / Organisasi</strong>
+              <div><small>Anggota Klub IT / Tim OSIS / Lainnya</small></div>
+              <div style="color:var(--muted);margin-top:6px">Sertakan peran yang menunjukkan kepemimpinan atau kerja tim.</div>
+            </div>
+          </div>
+        </div>
+
+        <div id="contact" class="section card">
+          <h4>Kontak</h4>
+          <p style="color:var(--muted);margin:0 0 8px 0">Saya terbuka untuk kesempatan magang dan kerja. Silakan hubungi melalui email atau telepon.</p>
+          <div style="display:flex;gap:10px;margin-top:10px">
+            <a class="btn btn-primary" href="mailto:your.email@example.com?subject=Hello%20Mahofi">Email</a>
+            <a class="btn" href="tel:+628xxxxxxxxxx">Telepon</a>
+            <a class="btn" href="https://github.com/username" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </div>
+
+        <footer>
+          <div>© <strong>Muhammad Mahofi Marchel</strong> — Portofolio</div>
+          <div style="color:var(--muted)">Diperbarui: 2025</div>
+        </footer>
+
+      </section>
+    </main>
+  </div>
+
+  <script>
+    // Tip kecil: ganti alamat email, telepon, linkedin/github, dan isi proyek.
+    // Fungsionalitas kecil untuk tombol "lihat" dan download CV bisa diganti dengan link nyata.
+    // Contoh: ubah href "Download CV" ke "/files/CV_MuhammadMahofi.pdf"
+  </script>
+</body>
+  </html>
